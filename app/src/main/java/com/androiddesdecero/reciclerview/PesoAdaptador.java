@@ -1,5 +1,7 @@
 package com.androiddesdecero.reciclerview;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
@@ -18,6 +20,9 @@ import static android.os.Build.VERSION_CODES.M;
  */
 
 public class PesoAdaptador extends RecyclerView.Adapter<PesoAdaptador.PesoViewHolder>{
+
+    public static final String PESO = "PESO";
+    public static final String FECHA = "FECHA";
 
     private List<Peso> pesos;
 
@@ -56,21 +61,34 @@ public class PesoAdaptador extends RecyclerView.Adapter<PesoAdaptador.PesoViewHo
         }
     }
 
+
     @Override
     public int getItemCount() {
         return pesos.size();
     }
 
-    public class PesoViewHolder extends RecyclerView.ViewHolder{
+    public class PesoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView tvFecha;
         private TextView tvPeso;
         private TextView tvDiferencia;
 
         public PesoViewHolder(View itemView){
             super(itemView);
+            itemView.setOnClickListener(this);
             tvFecha=(TextView) itemView.findViewById(R.id.tvFecha);
             tvPeso=(TextView) itemView.findViewById(R.id.tvPeso);
             tvDiferencia=(TextView) itemView.findViewById(R.id.tvDiferencia);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Context context = v.getContext();
+            int position = getAdapterPosition();
+            Peso peso = pesos.get(position);
+            Intent intent = new Intent(v.getContext(), PesoEditar.class);
+            intent.putExtra(PESO, peso.getmPeso());
+            intent.putExtra(FECHA, peso.getmFecha());
+            context.startActivity(intent);
         }
     }
 }
