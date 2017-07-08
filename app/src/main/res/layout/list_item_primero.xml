@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/rlLista"
+    android:layout_marginRight="16dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="200dp">
+
+    <TextView
+        android:layout_above="@+id/tvFecha"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/negativo"
+        android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PESO INICIAL"/>
+
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:textColor="@color/igual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01/01/2017"/>
+
+
+    <TextView
+        android:id="@+id/tvPeso"
+        android:textSize="40dp"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="70Kg"/>
+
+    <TextView
+        android:id="@id/tvDiferencia"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:textColor="@color/positivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+7Kg"/>
+
+    <TextView
+        android:layout_below="@id/tvDiferencia"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/igual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tu Objetivo son 67 Kg"/>
+</RelativeLayout>
